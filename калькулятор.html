@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>калькулятор</title>
+        <link rel="stylesheet" href="calc.css">
+    </head>
+    <body>
+        <div class="calculator">
+            <textarea id="result" readonly></textarea><br><br>
+            <input type="button" value="1" onclick="appendToResult('1')">
+            <input type="button" value="2" onclick="appendToResult('2')">
+            <input type="button" value="3" onclick="appendToResult('3')">
+            <input type="button" value="4" onclick="appendToResult('4')">
+            <input type="button" value="5" onclick="appendToResult('5')">
+            <input type="button" value="6" onclick="appendToResult('6')">
+            <input type="button" value="7" onclick="appendToResult('7')">
+            <input type="button" value="8" onclick="appendToResult('8')">
+            <input type="button" value="9" onclick="appendToResult('9')">
+            <input type="button" value="0" onclick="appendToResult('0')"><br><br>
+            <input class="ex1" type="button" value="+" onclick="appendToResult('+')">
+            <input class="ex1" type="button" value="-" onclick="appendToResult('-')">
+            <input class="ex1" type="button" value="*" onclick="appendToResult('*')">
+            <input class="ex1" type="button" value="/" onclick="appendToResult('/')">
+            <input class="ex1" type="button" value="." onclick="appendToResult('.')"><br><br>
+            <input class="ex2" type="button" value="=" onclick="calculateResult()">
+            <input class="ex2" type="button" value="C" onclick="clearResult()">
+        </div>
+          
+        <script>
+            function appendToResult(value) {
+                document.getElementById('result').value += value;
+            }
+            
+            function calculateResult() {
+                var result = document.getElementById('result').value;
+                var finalResult = eval(result);
+                document.getElementById('result').style.height = "70px";
+                document.getElementById('result').value += "=" + "\n" + finalResult;
+                document.getElementById('result').style.fontWeight = "bold";
+            }
+            
+            function clearResult() {
+                document.getElementById('result').value = '';
+                document.getElementById('result').style.fontWeight = "normal";
+                document.getElementById('result').style.height = "50px";
+            }
+        </script>
+    </body>
+</html>
